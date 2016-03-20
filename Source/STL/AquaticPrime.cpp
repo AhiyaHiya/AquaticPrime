@@ -27,7 +27,7 @@
 #include "AquaticPrime.h"
 #include "tinyxml.h"
 #include <stdarg.h>
-#include <b64/b64.h>
+#include "base64.hpp"
 
 static RSA *rsaKey;
 static std::string hash;
@@ -109,7 +109,8 @@ std::map<std::string, std::string> APCreateDictionaryForLicenseData(std::map<std
 	}
 	
 	// Load the signature
-	unsigned char sigBytes[128];
+	//unsigned char sigBytes[128];
+    auto decodedString = std::vector<BYTE>{};
 	std::map<std::string, std::string>::iterator signature = data.find("Signature");
 
     if(signature == data.end())
@@ -120,9 +121,11 @@ std::map<std::string, std::string> APCreateDictionaryForLicenseData(std::map<std
 	}
 	else 
 	{
-		int returnVal = b64::b64_decode(data["Signature"].c_str(), data["Signature"].length(), sigBytes, 129);	
-		
-		if(returnVal == 0)
+		//int returnVal = b64::b64_decode(data["Signature"].c_str(), data["Signature"].length(), sigBytes, 129);
+        auto& encodedString = data["Signature"];
+        decodedString = base64_decode(encodedString);
+        
+		if(decodedString.empty())
 		{
 			std::map<std::string, std::string> empty;
 	//		printf("1.5\n");
@@ -134,7 +137,7 @@ std::map<std::string, std::string> APCreateDictionaryForLicenseData(std::map<std
 	
 	// Decrypt the signature
 	unsigned char checkDigest[128] = {0};
-	if (RSA_public_decrypt(128, sigBytes, checkDigest, rsaKey, RSA_PKCS1_PADDING) != SHA_DIGEST_LENGTH)
+	if (RSA_public_decrypt(128, decodedString.data(), checkDigest, rsaKey, RSA_PKCS1_PADDING) != SHA_DIGEST_LENGTH)
     {
 		std::map<std::string, std::string> empty;
 //		printf("2\n");
@@ -163,10 +166,11 @@ std::map<std::string, std::string> APCreateDictionaryForLicenseData(std::map<std
 	}
 	
 	// Get the number of elements
-	int count = data.size();
+	auto count = data.size();
 	// Load the keys and build up the key array
 //	std::list<std::string> keyArray;
-	std::string keys[count];
+    auto keys = std::vector<std::string>{count};
+	//std::string keys[count];
 	
 	int counter = 0;
 	for(std::map<std::string, std::string>::iterator d = data.begin(); d != data.end(); ++d)
@@ -258,7 +262,7 @@ std::map<std::string, std::string> APCreateDictionaryForLicenseFile(std::string 
 								spaces.push_back(d);
 						}
 
-						for(uint s=0; s < spaces.size(); ++s)
+						for(auto s=0; s < spaces.size(); ++s)
 							data.erase(spaces[s] - (s));
 					}
 					

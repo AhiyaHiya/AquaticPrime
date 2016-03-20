@@ -11,7 +11,10 @@
 		2D69A67A1C9ED277006F0994 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A6781C9ED277006F0994 /* main.cpp */; };
 		2D69A67F1C9ED48E006F0994 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A67D1C9ED48E006F0994 /* base64.cpp */; };
 		2D69A68B1C9ED61A006F0994 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A67D1C9ED48E006F0994 /* base64.cpp */; };
-		2D69A68D1C9ED673006F0994 /* base64_tester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A68C1C9ED673006F0994 /* base64_tester.cpp */; };
+		2D69A6901C9ED728006F0994 /* base64_tester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A68C1C9ED673006F0994 /* base64_tester.cpp */; };
+		2DBBDB101C9F0BF5000DE42B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBDB0D1C9F0BF5000DE42B /* tinyxml.cpp */; };
+		2DBBDB111C9F0BF5000DE42B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBDB0E1C9F0BF5000DE42B /* tinyxmlerror.cpp */; };
+		2DBBDB121C9F0BF5000DE42B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBDB0F1C9F0BF5000DE42B /* tinyxmlparser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +49,10 @@
 		2D69A67E1C9ED48E006F0994 /* base64.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = base64.hpp; sourceTree = "<group>"; };
 		2D69A6841C9ED560006F0994 /* Base64Tester */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Base64Tester; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D69A68C1C9ED673006F0994 /* base64_tester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = base64_tester.cpp; sourceTree = "<group>"; };
+		2DBBDB0C1C9F0BE7000DE42B /* tinyxml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = ../../lib/tinyxml/tinyxml.h; sourceTree = "<group>"; };
+		2DBBDB0D1C9F0BF5000DE42B /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = ../../lib/tinyxml/tinyxml.cpp; sourceTree = "<group>"; };
+		2DBBDB0E1C9F0BF5000DE42B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = ../../lib/tinyxml/tinyxmlerror.cpp; sourceTree = "<group>"; };
+		2DBBDB0F1C9F0BF5000DE42B /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlparser.cpp; path = ../../lib/tinyxml/tinyxmlparser.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +76,9 @@
 		2D69A6631C9ED1F3006F0994 = {
 			isa = PBXGroup;
 			children = (
-				2D69A68E1C9ED67B006F0994 /* base64 */,
 				2D69A67C1C9ED416006F0994 /* README.txt */,
+				2D69A6911C9EDB0C006F0994 /* tinyxml */,
+				2D69A68E1C9ED67B006F0994 /* base64 */,
 				2D69A68F1C9ED689006F0994 /* STL */,
 				2D69A66F1C9ED24E006F0994 /* Products */,
 			);
@@ -104,6 +112,17 @@
 				2D69A6781C9ED277006F0994 /* main.cpp */,
 			);
 			name = STL;
+			sourceTree = "<group>";
+		};
+		2D69A6911C9EDB0C006F0994 /* tinyxml */ = {
+			isa = PBXGroup;
+			children = (
+				2DBBDB0D1C9F0BF5000DE42B /* tinyxml.cpp */,
+				2DBBDB0E1C9F0BF5000DE42B /* tinyxmlerror.cpp */,
+				2DBBDB0F1C9F0BF5000DE42B /* tinyxmlparser.cpp */,
+				2DBBDB0C1C9F0BE7000DE42B /* tinyxml.h */,
+			);
+			name = tinyxml;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,8 +202,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D69A67A1C9ED277006F0994 /* main.cpp in Sources */,
-				2D69A68D1C9ED673006F0994 /* base64_tester.cpp in Sources */,
+				2DBBDB101C9F0BF5000DE42B /* tinyxml.cpp in Sources */,
 				2D69A6791C9ED277006F0994 /* AquaticPrime.cpp in Sources */,
+				2DBBDB111C9F0BF5000DE42B /* tinyxmlerror.cpp in Sources */,
+				2DBBDB121C9F0BF5000DE42B /* tinyxmlparser.cpp in Sources */,
 				2D69A67F1C9ED48E006F0994 /* base64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D69A68B1C9ED61A006F0994 /* base64.cpp in Sources */,
+				2D69A6901C9ED728006F0994 /* base64_tester.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +426,7 @@
 				2D69A68A1C9ED560006F0994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
