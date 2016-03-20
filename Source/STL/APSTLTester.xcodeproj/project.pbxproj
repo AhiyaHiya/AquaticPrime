@@ -12,6 +12,8 @@
 		2D69A67F1C9ED48E006F0994 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A67D1C9ED48E006F0994 /* base64.cpp */; };
 		2D69A68B1C9ED61A006F0994 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A67D1C9ED48E006F0994 /* base64.cpp */; };
 		2D69A6901C9ED728006F0994 /* base64_tester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A68C1C9ED673006F0994 /* base64_tester.cpp */; };
+		2D7162861C9F108B0090C8EC /* valid_example_license_file.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7162841C9F0FAC0090C8EC /* valid_example_license_file.xml */; };
+		2D7162871C9F108B0090C8EC /* invalid_example_license_file.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7162851C9F101F0090C8EC /* invalid_example_license_file.xml */; };
 		2DBBDB101C9F0BF5000DE42B /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBDB0D1C9F0BF5000DE42B /* tinyxml.cpp */; };
 		2DBBDB111C9F0BF5000DE42B /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBDB0E1C9F0BF5000DE42B /* tinyxmlerror.cpp */; };
 		2DBBDB121C9F0BF5000DE42B /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBDB0F1C9F0BF5000DE42B /* tinyxmlparser.cpp */; };
@@ -20,12 +22,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		2D69A66C1C9ED24E006F0994 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = sample_licenses;
+			dstSubfolderSpec = 16;
 			files = (
+				2D7162861C9F108B0090C8EC /* valid_example_license_file.xml in CopyFiles */,
+				2D7162871C9F108B0090C8EC /* invalid_example_license_file.xml in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D69A6821C9ED560006F0994 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -49,6 +53,8 @@
 		2D69A67E1C9ED48E006F0994 /* base64.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = base64.hpp; sourceTree = "<group>"; };
 		2D69A6841C9ED560006F0994 /* Base64Tester */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Base64Tester; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D69A68C1C9ED673006F0994 /* base64_tester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = base64_tester.cpp; sourceTree = "<group>"; };
+		2D7162841C9F0FAC0090C8EC /* valid_example_license_file.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = valid_example_license_file.xml; sourceTree = "<group>"; };
+		2D7162851C9F101F0090C8EC /* invalid_example_license_file.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = invalid_example_license_file.xml; sourceTree = "<group>"; };
 		2DBBDB0C1C9F0BE7000DE42B /* tinyxml.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = ../../lib/tinyxml/tinyxml.h; sourceTree = "<group>"; };
 		2DBBDB0D1C9F0BF5000DE42B /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = ../../lib/tinyxml/tinyxml.cpp; sourceTree = "<group>"; };
 		2DBBDB0E1C9F0BF5000DE42B /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = ../../lib/tinyxml/tinyxmlerror.cpp; sourceTree = "<group>"; };
@@ -76,6 +82,8 @@
 		2D69A6631C9ED1F3006F0994 = {
 			isa = PBXGroup;
 			children = (
+				2D7162841C9F0FAC0090C8EC /* valid_example_license_file.xml */,
+				2D7162851C9F101F0090C8EC /* invalid_example_license_file.xml */,
 				2D69A67C1C9ED416006F0994 /* README.txt */,
 				2D69A6911C9EDB0C006F0994 /* tinyxml */,
 				2D69A68E1C9ED67B006F0994 /* base64 */,

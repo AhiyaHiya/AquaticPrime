@@ -7,6 +7,13 @@
 //
 
 #include <iostream>
+#include <cassert>
+#include <vector>
+
+#if defined (__APPLE__)
+#include <unistd.h>
+#endif
+
 #include "AquaticPrime.h"
 
 using Key = std::string;
@@ -17,16 +24,23 @@ int main(int argc, const char * argv[])
     std::cout << "AquaticPrime STL tester starting\n";
  
     // All functions called
-    auto key = std::string{""};
-    APSetKey(key);
+    const auto key = std::string{""};
+    const auto setKeyResult = APSetKey(key);
+    assert(setKeyResult == true && "Failure detected while attempting to set key");
     
-    auto data = std::map<Key, Value>{};
+    const auto data = std::map<Key, Value>{};
     auto result = APCreateDictionaryForLicenseData(data);
+    assert(result.empty() && "This function should have returned an empty dictionary");
     
-    auto pathToLicenseFile = std::string{""};
+    auto currentPath = std::vector<char>(1024);
+    auto currentWorkingDir = getcwd(currentPath.data(), currentPath.size());
+    
+    auto pathToLicenseFile = std::string{currentWorkingDir};
+    pathToLicenseFile += "/sample_licenses/valid_example_license_file.xml";
     auto licenseFileDict = APCreateDictionaryForLicenseFile(pathToLicenseFile);
     
-    const auto licenseDataIsValid = APVerifyLicenseData(data); (void)licenseDataIsValid;
+    const auto licenseDataIsValid = APVerifyLicenseData(licenseFileDict); (void)licenseDataIsValid;
+    
     const auto licenseFileIsValid = APVerifyLicenseFile(pathToLicenseFile); (void)licenseFileIsValid;
     
     auto hashString = APHash();
