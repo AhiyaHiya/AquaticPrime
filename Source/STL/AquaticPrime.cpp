@@ -29,6 +29,8 @@
 #include <stdarg.h>
 #include "base64.hpp"
 
+#include <algorithm>
+
 static RSA *rsaKey;
 static std::string hash;
 static std::list<std::string> blacklist;
@@ -45,8 +47,12 @@ const char* CreateCString(std::string output, ...)
 	va_list	ap;
 
 	va_start(ap, output);								// Parses The String For Variables
-		vsprintf(text, output.c_str(), ap);				// And Converts Symbols To Actual Numbers
-	va_end(ap);					
+#if defined(_WIN32)
+    vsprintf_s(text, output.c_str(), ap);				// And Converts Symbols To Actual Numbers
+#else
+    vsprintf(text, output.c_str(), ap);				// And Converts Symbols To Actual Numbers
+#endif
+       va_end(ap);					
 
 	return (const char*)text;
 }
